@@ -17,14 +17,12 @@ test.h5
 
 # Load libraries
 import pandas as pd
-import zipfile
-import numpy as np
 
 # Load data
-original_path = './data/original/'
-file_name = 'test'
-z = zipfile.ZipFile(original_path + file_name + '.csv.zip')
-test = pd.read_csv(z.open(file_name + '.csv'))
+prepped_path = './data/prepped/'
+train = pd.read_hdf(prepped_path + 'train.h5', 'table', append=True)
+test = pd.read_hdf(prepped_path + 'test.h5', 'table', append=True)
+submission = pd.read_csv('./data/submission/sample_submission.csv')
 
 # TODO Set column names
 
@@ -39,5 +37,3 @@ test = pd.read_csv(z.open(file_name + '.csv'))
 # TODO Define other variables
 
 # TODO Write out data to data/prepped/
-prepped_path = './data/prepped/'
-test.to_hdf(prepped_path + file_name + '.h5', 'table', append=True)
