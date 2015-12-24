@@ -8,35 +8,19 @@ Date:
 2015-12-15
 
 inputs:
-test.csv.zip
+data/features/*
+data/models/*
 
 outputs:
-test.h5
+submission.csv
 '''
 
 # Load libraries
 import pandas as pd
-import zipfile
-import numpy as np
 
 # Load data
-original_path = './data/original/'
-file_name = 'test'
-z = zipfile.ZipFile(original_path + file_name + '.csv.zip')
-test = pd.read_csv(z.open(file_name + '.csv'))
+features_path = './data/features/'
+models_path = './data/models/'
 
-# TODO Set column names
-
-# TODO Set column types
-
-# TODO Filter out certain columns
-
-# TODO Filter out certain observations
-
-# TODO Ensure uniqueness at some level
-
-# TODO Define other variables
-
-# TODO Write out data to data/prepped/
-prepped_path = './data/prepped/'
-test.to_hdf(prepped_path + file_name + '.h5', 'table', append=True)
+# Write data out
+pd.to_csv('./data/submission/01-submission.csv')

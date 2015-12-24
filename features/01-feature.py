@@ -1,5 +1,5 @@
 '''
-Builds a model (TO BE DETERMINED).
+Creates a feature (TO BE DETERMINED).
 
 Authors:
 Paul Hendricks
@@ -13,7 +13,7 @@ test.h5
 sample_submission.csv
 
 outputs:
-01-model.h5
+01-feature.h5
 '''
 
 # Load libraries
@@ -26,4 +26,4 @@ test = pd.read_hdf(prepped_path + 'test.h5', 'table')
 submission = pd.read_csv('./data/submission/sample_submission.csv')
 
 # Write data out
-pd.to_csv('./data/models/01-model.h5')
+pd.to_hdf('./data/features/01-feature.h5')
