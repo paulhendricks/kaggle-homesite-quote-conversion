@@ -11,7 +11,7 @@ inputs:
 test.csv.zip
 
 outputs:
-test.h5
+02-test.h5
 '''
 
 # Load libraries
@@ -39,4 +39,4 @@ test = pd.read_csv(z.open(file_name + '.csv'))
 
 # TODO Write out data to data/prepped/
 prepped_path = './data/prepped/'
-test.to_hdf(prepped_path + file_name + '.h5', 'table', append=True)
+test.to_hdf(prepped_path + '02' + file_name + '.h5', 'table', append=True)

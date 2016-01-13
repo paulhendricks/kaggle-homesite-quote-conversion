@@ -11,7 +11,7 @@ inputs:
 train.csv.zip
 
 outputs:
-train.h5
+01-train.h5
 '''
 
 # Load libraries
@@ -38,4 +38,4 @@ train = pd.read_csv(z.open(file_name + '.csv'))
 
 # TODO Write out data to data/prepped/
 prepped_path = './data/prepped/'
-train.to_hdf(prepped_path + file_name + '.h5', 'table', append=True)
+train.to_hdf(prepped_path + '01' + file_name + '.h5', 'table', append=True)
