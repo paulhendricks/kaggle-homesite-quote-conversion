@@ -1,3 +1,6 @@
 **/.DS_Store
 **/.idea
-**/*.h5
+**/*.csv
+.Rproj.user
+kaggle-homesite-quote-conversion.Rproj
+.Rhistory

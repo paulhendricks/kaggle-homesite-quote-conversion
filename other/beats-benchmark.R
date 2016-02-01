@@ -1,0 +1,7 @@
+library(dplyr)
+train <- read.csv("02-data/02-prepared/00-train.csv", stringsAsFactors = FALSE)
+test <- read.csv("02-data/02-prepared/00-test.csv", stringsAsFactors = FALSE)
+preds <- train %>% group_by(PersonalField9, PropertyField37, SalesField5, PropertyField29, SalesField1A, PersonalField1) %>% summarise(QuoteConversion_Flag=mean(QuoteConversion_Flag))
+testPreds <- merge(test, preds, all.x=TRUE)
+testPreds$QuoteConversion_Flag[is.na(testPreds$QuoteConversion_Flag)] <- mean(testPreds$QuoteConversion_Flag, na.rm=TRUE)
+write.csv(data.frame(QuoteNumber=testPreds$QuoteNumber, QuoteConversion_Flag=testPreds$QuoteConversion_Flag), "beatTheBenchmark.csv",row.names = FALSE)
